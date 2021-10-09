@@ -73,22 +73,14 @@ public class MainActivity extends AppCompatActivity {
         viewModel.getMovies().observe(this, new Observer<List<Movie>>() {
             @Override
             public void onChanged(List<Movie> movies) {
-                if (viewModel.isLoading() != true) {
+                if (!viewModel.isLoading()) {
                     movieAdapter.setMovies(movies);
-                    for (Movie movie : movies) {
-                        Log.i("xxx", movie.getTitle());
-                        Log.i("xxx", Integer.toString(movie.getAutoId()));
-                    }
                 }
 
             }
         });
         setAllListeners();
         switchSort.setChecked(false);
-    }
-
-    public void showData(List<Movie> movies) {
-        movieAdapter.setMovies(movies);
     }
 
     private int getColumnCount() {
