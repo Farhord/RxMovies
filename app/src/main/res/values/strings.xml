@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">RxMovies</string>
+    <string name="poster_of_movie">Постер к фильму</string>
+    <string name="most_popular">По популярности</string>
+    <string name="top_rating">По рейтингу</string>
+    <string name="title_label">Название:</string>
+    <string name="original_title_label">Оригинальное название:</string>
+    <string name="rating_title">Рейтинг:</string>
+    <string name="release_date_title">Дата выхода:</string>
+    <string name="description_label">Описание:</string>
+    <string name="add_to_favourite">Добавлено в избраное</string>
+    <string name="remove_from_favourite">Удалено из избранного</string>
+    <string name="item_main">Главная</string>
+    <string name="item_favourite">Избранное</string>
+    <string name="launch_trailer">Запустить трейлер</string>
+    <string name="trailer_label">Трейлеры:</string>
+    <string name="reviews_label">Отзывы:</string>
+</resources>
