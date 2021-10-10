@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">RxMovies</string>
+    <string name="poster_of_movie">Film poster</string>
+    <string name="most_popular">Sort by popularity</string>
+    <string name="top_rating">Sort by rating</string>
+    <string name="title_label">Title:</string>
+    <string name="original_title_label">Original title:</string>
+    <string name="rating_title">Rating:</string>
+    <string name="release_date_title">Release date:</string>
+    <string name="description_label">Description:</string>
+    <string name="add_to_favourite">Movie added to favourite</string>
+    <string name="remove_from_favourite">Movie removed from favourite</string>
+    <string name="item_main">Main</string>
+    <string name="item_favourite">Favourite</string>
+    <string name="launch_trailer">Play trailer</string>
+    <string name="trailer_label">Trailers:</string>
+    <string name="reviews_label">Reviews:</string>
+</resources>

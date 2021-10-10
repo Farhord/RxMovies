@@ -3,8 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/AndroidProjects/RxMovies/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/AndroidProjects/RxMovies/app/src/main/res/layout-land/activity_detail.xml" value="0.1609375" />
+        <entry key="..\:/AndroidProjects/RxMovies/app/src/main/res/layout/activity_detail.xml" value="0.33" />
+        <entry key="..\:/AndroidProjects/RxMovies/app/src/main/res/layout/activity_favourite.xml" value="0.1" />
+        <entry key="..\:/AndroidProjects/RxMovies/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/AndroidProjects/RxMovies/app/src/main/res/layout/movie_info.xml" value="0.1" />
         <entry key="..\:/AndroidProjects/RxMovies/app/src/main/res/layout/movie_item.xml" value="0.1" />
+        <entry key="..\:/AndroidProjects/RxMovies/app/src/main/res/layout/review_item.xml" value="0.1" />
+        <entry key="..\:/AndroidProjects/RxMovies/app/src/main/res/layout/trailer_item.xml" value="0.1" />
         <entry key="..\:/AndroidProjects/RxMovies/app/src/main/res/menu/main_menu.xml" value="0.1" />
       </map>
     </option>

@@ -1,25 +1,28 @@
 package com.example.rxmovies.pojo;
 
-import androidx.room.Entity;
-import androidx.room.Ignore;
-import androidx.room.PrimaryKey;
-
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-@Entity(tableName = "movies")
-public class Movie {
-    @PrimaryKey(autoGenerate = true)
-    private int autoId;
+public class OneMovieResponse {
+
     @SerializedName("adult")
     @Expose
     private boolean adult;
     @SerializedName("backdrop_path")
     @Expose
     private String backdropPath;
+    @SerializedName("budget")
+    @Expose
+    private int budget;
+    @SerializedName("homepage")
+    @Expose
+    private String homepage;
     @SerializedName("id")
     @Expose
     private int id;
+    @SerializedName("imdb_id")
+    @Expose
+    private String imdbId;
     @SerializedName("original_language")
     @Expose
     private String originalLanguage;
@@ -38,6 +41,18 @@ public class Movie {
     @SerializedName("release_date")
     @Expose
     private String releaseDate;
+    @SerializedName("revenue")
+    @Expose
+    private int revenue;
+    @SerializedName("runtime")
+    @Expose
+    private int runtime;
+    @SerializedName("status")
+    @Expose
+    private String status;
+    @SerializedName("tagline")
+    @Expose
+    private String tagline;
     @SerializedName("title")
     @Expose
     private String title;
@@ -50,36 +65,6 @@ public class Movie {
     @SerializedName("vote_count")
     @Expose
     private int voteCount;
-
-    public Movie(int autoId, boolean adult, String backdropPath, int id, String originalLanguage, String originalTitle, String overview, double popularity, String posterPath, String releaseDate, String title, boolean video, double voteAverage, int voteCount) {
-        this.autoId = autoId;
-        this.adult = adult;
-        this.backdropPath = backdropPath;
-        this.id = id;
-        this.originalLanguage = originalLanguage;
-        this.originalTitle = originalTitle;
-        this.overview = overview;
-        this.popularity = popularity;
-        this.posterPath = posterPath;
-        this.releaseDate = releaseDate;
-        this.title = title;
-        this.video = video;
-        this.voteAverage = voteAverage;
-        this.voteCount = voteCount;
-    }
-
-    @Ignore
-    public Movie() {
-    }
-
-
-    public int getAutoId() {
-        return autoId;
-    }
-
-    public void setAutoId(int autoId) {
-        this.autoId = autoId;
-    }
 
     public boolean isAdult() {
         return adult;
@@ -97,12 +82,36 @@ public class Movie {
         this.backdropPath = backdropPath;
     }
 
+    public int getBudget() {
+        return budget;
+    }
+
+    public void setBudget(int budget) {
+        this.budget = budget;
+    }
+
+    public String getHomepage() {
+        return homepage;
+    }
+
+    public void setHomepage(String homepage) {
+        this.homepage = homepage;
+    }
+
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getImdbId() {
+        return imdbId;
+    }
+
+    public void setImdbId(String imdbId) {
+        this.imdbId = imdbId;
     }
 
     public String getOriginalLanguage() {
@@ -153,6 +162,38 @@ public class Movie {
         this.releaseDate = releaseDate;
     }
 
+    public int getRevenue() {
+        return revenue;
+    }
+
+    public void setRevenue(int revenue) {
+        this.revenue = revenue;
+    }
+
+    public int getRuntime() {
+        return runtime;
+    }
+
+    public void setRuntime(int runtime) {
+        this.runtime = runtime;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getTagline() {
+        return tagline;
+    }
+
+    public void setTagline(String tagline) {
+        this.tagline = tagline;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -184,4 +225,6 @@ public class Movie {
     public void setVoteCount(int voteCount) {
         this.voteCount = voteCount;
     }
+
+
 }

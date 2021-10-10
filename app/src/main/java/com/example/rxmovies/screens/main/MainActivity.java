@@ -1,19 +1,15 @@
 package com.example.rxmovies.screens.main;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.loader.app.LoaderManager;
-import androidx.loader.content.Loader;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -26,8 +22,8 @@ import android.widget.TextView;
 import com.example.rxmovies.R;
 import com.example.rxmovies.adapters.MovieAdapter;
 import com.example.rxmovies.pojo.Movie;
-
-import org.json.JSONObject;
+import com.example.rxmovies.screens.detail.DetailActivity;
+import com.example.rxmovies.screens.favourite.FavouriteActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,6 +51,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+            case R.id.itemMain:
+                Intent intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.itemFavourite:
+                Intent intentToFavourite = new Intent(this, FavouriteActivity.class);
+                startActivity(intentToFavourite);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -73,14 +85,12 @@ public class MainActivity extends AppCompatActivity {
         viewModel.getMovies().observe(this, new Observer<List<Movie>>() {
             @Override
             public void onChanged(List<Movie> movies) {
-                if (!viewModel.isLoading()) {
-                    movieAdapter.setMovies(movies);
-                }
-
+                movieAdapter.setMovies(movies);
             }
         });
         setAllListeners();
         switchSort.setChecked(false);
+        recyclerViewPosters.smoothScrollToPosition(0);
     }
 
     private int getColumnCount() {
@@ -99,22 +109,29 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        movieAdapter.setOnPosterClickListener(new MovieAdapter.OnPosterClickListener() {
-//            @Override
-//            public void onPosterClick(int position) {
-//                Movie movie = movieAdapter.getMovieList().get(position);
-//                Intent intent = new Intent(MainActivity.this, DetailActivity.class);
-//                intent.putExtra("id", movie.getId());
-//                startActivity(intent);
-//            }
-//        });
+        movieAdapter.setOnPosterClickListener(new MovieAdapter.OnPosterClickListener() {
+            @Override
+            public void onPosterClick(int position) {
+                Movie movie = movieAdapter.getMovies().get(position);
+                Intent intent = new Intent(MainActivity.this, DetailActivity.class);
+                intent.putExtra("id", movie.getId());
+                startActivity(intent);
+            }
+        });
 
-//        movieAdapter.setOnReachEndListener(new MovieAdapter.OnReachEndListener() {
-//            @Override
-//            public void onReachEnd() {
-//                viewModel.loadData(lang, methodOfSort, page);
-//            }
-//        });
+        movieAdapter.setOnReachEndListener(new MovieAdapter.OnReachEndListener() {
+            @Override
+            public void onReachEnd() {
+                if (!viewModel.isLoading()) {
+                    progressBarLoading.setVisibility(View.VISIBLE);
+                    page++;
+                    viewModel.loadData(lang, methodOfSort, page);
+                    if (!viewModel.isLoading()) {
+                        progressBarLoading.setVisibility(View.INVISIBLE);
+                    }
+                }
+            }
+        });
     }
 
     public void setFilmsBySort(boolean b) {
